@@ -1,0 +1,14 @@
+# 前提条件
+# anyenv,anyenvからのrbenv,ruby,bundle(rubygem),yarn(ubuntuデフォルトバージョンではなく、安定版(公式ページ参照))　がインストール済
+
+
+
+bundle init
+# ここでGemFileの編集（gem "rails"のコメントを外す）
+bundle install
+bundel exec rails new . -B  # -B で bundle install を自動実行しない（自動実行すると途中で警告が出る）
+bundle install
+bundle binstubs bundler --force  # --forceが大事
+bundle exec spring binstub --all
+bundle exec rails webpacker:install
+
