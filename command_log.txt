@@ -2,6 +2,14 @@
 # anyenv,anyenvからのrbenv,ruby,bundle(rubygem),yarn(ubuntuデフォルトバージョンではなく、安定版(公式ページ参照))　がインストール済
 
 
+# bundleのデフォルトをいい感じに設定
+
+bundle config set path 'vendor/bundle'
+bundle config set bin 'vendor/bin'
+bundle config set jobs '4'
+
+
+# 以下対象フォルダにて実行
 
 bundle init
 # ここでGemFileの編集（gem "rails"のコメントを外す）
@@ -12,3 +20,7 @@ bundle binstubs bundler --force  # --forceが大事
 bundle exec spring binstub --all
 bundle exec rails webpacker:install
 
+echo '/vendor' >> .gitignore
+git init
+git add .
+git commit -m "initial commit"
