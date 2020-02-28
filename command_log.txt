@@ -15,7 +15,8 @@ bundle init
 # ここでGemFileの編集（gem "rails"のコメントを外す）
 bundle install
 bundel exec rails new . -B  # -B で bundle install を自動実行しない（自動実行すると途中で警告が出る）
-bundle install
+# ここでheroku向けにGemFile編集（sqlite3を本番環境以外に移動し、本番環境向けにpgを追加）
+bundle install --without production
 bundle binstubs bundler --force  # --forceが大事
 bundle exec spring binstub --all
 bundle exec rails webpacker:install
